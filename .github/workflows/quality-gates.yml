@@ -20,9 +20,14 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK 36
+        run: sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+
       - name: Set up Flutter stable (>= 3.35 inahitajika kwa Android SDK 36)
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: "3.50.1"
           channel: stable
           cache: true
 
@@ -43,11 +48,11 @@ jobs:
       - name: Unit and widget tests
         run: flutter test --reporter expanded
 
-      - name: Install Gradle 8.12 and generate wrapper
+      - name: Install Gradle 9.5.0 and generate wrapper
         run: |
-          curl -fsSL https://services.gradle.org/distributions/gradle-8.12-bin.zip -o /tmp/gradle.zip
+          curl -fsSL https://services.gradle.org/distributions/gradle-9.5.0-bin.zip -o /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d /opt
-          /opt/gradle-8.12/bin/gradle -p android wrapper --gradle-version 8.12
+          /opt/gradle-9.5.0/bin/gradle -p android wrapper --gradle-version 9.5.0 --distribution-type bin
 
       - name: Android debug APK
         run: flutter build apk --debug
@@ -57,12 +62,16 @@ jobs:
           MADINI_ALLOW_DEBUG_SIGNING: "1"
         run: |
           flutter build apk --release
+          flutter build appbundle --release
           bash scripts/check_16kb.sh build/app/outputs/flutter-apk/app-release.apk
 
       - uses: actions/upload-artifact@v4
         with:
           name: madini-debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          path: |
+            build/app/outputs/flutter-apk/app-debug.apk
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/bundle/release/app-release.aab
           if-no-files-found: error
           retention-days: 14
 
@@ -79,14 +88,15 @@ jobs:
           java-version: "17"
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: "3.50.1"
           channel: stable
           cache: true
       - run: flutter pub get
-      - name: Generate Gradle wrapper
+      - name: Generate Gradle 9.5.0 wrapper
         run: |
-          curl -fsSL https://services.gradle.org/distributions/gradle-8.12-bin.zip -o /tmp/gradle.zip
+          curl -fsSL https://services.gradle.org/distributions/gradle-9.5.0-bin.zip -o /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d /opt
-          /opt/gradle-8.12/bin/gradle -p android wrapper --gradle-version 8.12
+          /opt/gradle-9.5.0/bin/gradle -p android wrapper --gradle-version 9.5.0 --distribution-type bin
       - name: Restore release keystore from secrets
         env:
           KEYSTORE_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
@@ -106,6 +116,7 @@ jobs:
         run: |
           flutter build appbundle --release
           flutter build apk --release
+          flutter build appbundle --release
           bash scripts/check_16kb.sh build/app/outputs/flutter-apk/app-release.apk
       - uses: actions/upload-artifact@v4
         with:
