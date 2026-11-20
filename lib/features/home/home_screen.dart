@@ -3,28 +3,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app.dart';
 import '../../core/app_localizations.dart';
+import '../../core/format.dart';
 import '../../domain/gold_assessment.dart';
+import '../../services/backup_reminder.dart';
 import '../../services/local_database.dart';
+import '../common/assessment_tile.dart';
+import '../valuation/dore_screen.dart';
 import '../valuation/valuation_screen.dart';
 
-class HomeScreen extends ConsumerStatefulWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
-  ConsumerState<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends ConsumerState<HomeScreen> {
-  late Future<List<GoldAssessment>> _future;
-
-  @override
-  void initState() {
-    super.initState();
-    _future = LocalDatabase.instance.listAssessments(limit: 4);
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final strings = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -43,109 +34,91 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Premium valuation intelligence',
-                style: Theme.of(context).textTheme.headlineMedium,
+                tr(context, 'Kumbukumbu na makadirio ya ununuzi wa ore',
+                    'Ore purchase records and estimates'),
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                tr(context, 'Makadirio ya kusaidia uamuzi; si cheti cha assay wala ofa rasmi.',
+                    'Decision-support estimates; not an assay certificate or a formal offer.'),
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
+              const SizedBox(height: 12),
+              ValueListenableBuilder<int>(
+                valueListenable: LocalDatabase.instance.changes,
+                builder: (context, _, __) => FutureBuilder<bool>(
+                  future: LocalDatabase.instance
+                      .countAssessments()
+                      .then(BackupReminder.isDue)
+                      .catchError((_) => false),
+                  builder: (context, snapshot) => snapshot.data == true
+                      ? Card(
+                          color: Theme.of(context).colorScheme.tertiaryContainer,
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Row(children: [
+                              const Icon(Icons.backup_outlined),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(tr(context,
+                                    'Hujafanya backup hivi karibuni. Simu ikipotea au ikibadilishwa, rekodi zako hupotea bila backup. Nenda Mipangilio → Tengeneza backup salama.',
+                                    'No recent backup. If the phone is lost or replaced, your records are lost without a backup. Go to Settings → Create secure backup.')),
+                              ),
+                            ]),
+                          ),
+                        )
+                      : const SizedBox.shrink(),
+                ),
               ),
               const SizedBox(height: 16),
               FilledButton.icon(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const ValuationScreen()),
-                  );
-                },
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const ValuationScreen()),
+                ),
                 icon: const Icon(Icons.calculate),
                 label: Text(strings.get('newAssessment')),
               ),
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const DoreScreen()),
+                ),
+                icon: const Icon(Icons.scale_outlined),
+                label: Text(tr(context, 'Ununuzi wa doré / dhahabu', 'Dore / gold purchase')),
+              ),
               const SizedBox(height: 20),
-              Row(
-                children: [
-                  Expanded(
-                    child: _InfoCard(
-                      label: strings.get('offlineLabel'),
-                      value: 'Local-first',
-                      icon: Icons.security_outlined,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: _InfoCard(
-                      label: strings.get('subscription'),
-                      value: strings.get('trial'),
-                      icon: Icons.verified_outlined,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 24),
-              Text(
-                strings.get('recentAssessments'),
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+              Text(strings.get('recentAssessments'),
+                  style: Theme.of(context).textTheme.titleMedium),
               const SizedBox(height: 12),
               Expanded(
-                child: FutureBuilder<List<GoldAssessment>>(
-                  future: _future,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
-                    if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                      return const Center(child: Text('No assessments yet. Start a valuation to get insights.'));
-                    }
-
-                    return ListView.builder(
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        final item = snapshot.data![index];
-                        return Card(
-                          margin: const EdgeInsets.only(bottom: 12),
-                          child: ListTile(
-                            title: Text(item.title),
-                            subtitle: Text('${item.mode} • ${item.createdAt.toLocal().toString().split(' ')[0]}'),
-                            trailing: Text(
-                              '${item.result['maximumBid']?.toStringAsFixed(2) ?? '0.00'}',
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                          ),
+                child: ValueListenableBuilder<int>(
+                  valueListenable: LocalDatabase.instance.changes,
+                  builder: (context, _, __) => FutureBuilder<List<GoldAssessment>>(
+                    future: LocalDatabase.instance.listAssessments(limit: 4),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                      if (snapshot.hasError) return ErrorText(snapshot.error);
+                      final items = snapshot.data ?? const <GoldAssessment>[];
+                      if (items.isEmpty) {
+                        return Center(
+                          child: Text(tr(context, 'Bado hakuna tathmini. Anza tathmini mpya.',
+                              'No assessments yet. Start a new one.')),
                         );
-                      },
-                    );
-                  },
+                      }
+                      return ListView.separated(
+                        itemCount: items.length,
+                        separatorBuilder: (_, __) => const SizedBox(height: 8),
+                        itemBuilder: (context, i) => AssessmentTile(item: items[i]),
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _InfoCard extends StatelessWidget {
-  const _InfoCard({
-    required this.label,
-    required this.value,
-    required this.icon,
-  });
-
-  final String label;
-  final String value;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(icon, color: Theme.of(context).colorScheme.primary),
-            const SizedBox(height: 12),
-            Text(label, style: Theme.of(context).textTheme.labelLarge),
-            const SizedBox(height: 8),
-            Text(value, style: Theme.of(context).textTheme.titleMedium),
-          ],
         ),
       ),
     );

@@ -1,0 +1,7 @@
+# Nakili kuwa android/key.properties (HAIJUMUISHWI kwenye git) na ujaze.
+# Tengeneza keystore mara moja na uihifadhi mahali salama (bila hiyo huwezi kusasisha app):
+#   keytool -genkey -v -keystore ~/madini-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias madini
+storePassword=BADILISHA
+keyPassword=BADILISHA
+keyAlias=madini
+storeFile=/njia/kamili/ya/madini-release.jks

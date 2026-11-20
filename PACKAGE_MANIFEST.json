@@ -1,0 +1,468 @@
+{
+  "package": "MADINI V1.9",
+  "source_basis": "MADINI_V1_8_DORE_HISTORY_CANDIDATE.zip",
+  "generated_utc": "2026-11-20",
+  "verification_note": "Static source review and structural checks only. Flutter/Dart analysis, tests, Android build/signing, device validation and independent security/professional review NOT run in authoring environment.",
+  "files": [
+    {
+      "path": ".github/workflows/quality-gates.yml",
+      "size_bytes": 3851,
+      "sha256": "ecf20db5bf25f68e0f6a5fe32117cd2f769ea5786eb3d9c4a4b51a682394ba41"
+    },
+    {
+      "path": ".gitignore",
+      "size_bytes": 842,
+      "sha256": "6da2f6f40d5104ad4c8fb389f71a34e8146a1340ba5788a602276666a300d61b"
+    },
+    {
+      "path": ".metadata",
+      "size_bytes": 1114,
+      "sha256": "0aec261a1d724059fc84de095bd88ad9149ae298f3d4465f1755a67e7463662d"
+    },
+    {
+      "path": "AUDIT_REPORT_V1_9_SW.md",
+      "size_bytes": 4771,
+      "sha256": "10b9acd79929855877ce7c1c03ca17d46f95f8bdbb2ab5a7bcc653a4e86dccf9"
+    },
+    {
+      "path": "BUILD_AND_RELEASE_SW.md",
+      "size_bytes": 1065,
+      "sha256": "3f26f9481e7cabcdc2cfd3c8dd4f371d4a936c448cc73f3245d0c5c1bd8068ca"
+    },
+    {
+      "path": "CHANGES_V1_3_SW.md",
+      "size_bytes": 4557,
+      "sha256": "7eae00db6950660abba55a1d05ef31399bb978806537673281103048a4ab94b2"
+    },
+    {
+      "path": "CHANGES_V1_4_SW.md",
+      "size_bytes": 2475,
+      "sha256": "b0ea533bce488b44a1dc4f703ae148517a875b5d3e214b91f2822f478b68750f"
+    },
+    {
+      "path": "CHANGES_V1_6_SW.md",
+      "size_bytes": 2733,
+      "sha256": "5797d73bcb71ce86261051ffe79bd1ff993a99f814e7e9d7ec8be41bc9b80342"
+    },
+    {
+      "path": "CHANGES_V1_7_SW.md",
+      "size_bytes": 4107,
+      "sha256": "7a4f86168c122a81477c2e6ab332365c7465cf77052c9160629e9a11897472d3"
+    },
+    {
+      "path": "CHANGES_V1_8_SW.md",
+      "size_bytes": 2488,
+      "sha256": "c9588752f7fbb5336aaea80cfb09cd8bf6102a503306a9f21c10738a0b4b7a4a"
+    },
+    {
+      "path": "CHANGES_V1_9_SW.md",
+      "size_bytes": 4339,
+      "sha256": "82dc2b346091ff3f736219dfab259461912c5373cea616fe3248b747311d36e7"
+    },
+    {
+      "path": "DELIVERY_STATUS_SW.md",
+      "size_bytes": 3938,
+      "sha256": "f5aca21154c54b40f76aa83e47128df94ebfed557c5e78069c7bfd2206ee5f99"
+    },
+    {
+      "path": "LICENSE.md",
+      "size_bytes": 460,
+      "sha256": "e25017e0686e46d2fdca25aeed6b4919fc6c6282525b6b4a336c21ad6c95b32e"
+    },
+    {
+      "path": "MARKET_RESEARCH_SW.md",
+      "size_bytes": 5256,
+      "sha256": "d9b6dfa67035ef269251e4620265cb7ef1b6f2d849ead49520524328612e3e56"
+    },
+    {
+      "path": "PRODUCTION_READINESS_SW.md",
+      "size_bytes": 4160,
+      "sha256": "f3472197283793b2eba7d8895fae7ca27eb90d8b125a1b446c195757635f7daa"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 9702,
+      "sha256": "c958bfd1bf1897154378df4838f3e6db0f524fe6bb60135baa6591cdfc6353e6"
+    },
+    {
+      "path": "RELEASE_CHECKLIST_SW.md",
+      "size_bytes": 3193,
+      "sha256": "3e394638bdb137f4a44e9bf9485c10eca8636a3835b09cc71a3ea8d94173771b"
+    },
+    {
+      "path": "analysis_options.yaml",
+      "size_bytes": 1420,
+      "sha256": "e0ea485cfdbc3e12b93efb8679a5ea73ebfe20ea4ca0c473dc594fc2fb274ed5"
+    },
+    {
+      "path": "android/.gitignore",
+      "size_bytes": 247,
+      "sha256": "b97dd21ea377acd068ce45903e6bd983dee58a3522bcea558e674821af080495"
+    },
+    {
+      "path": "android/app/build.gradle",
+      "size_bytes": 2532,
+      "sha256": "8ab18555833f103a1ec0474758213c4ba5d08675b5c88bf099bb78ba3ea75020"
+    },
+    {
+      "path": "android/app/proguard-rules.pro",
+      "size_bytes": 36,
+      "sha256": "34ff57dedc086a9ff93b3cd0cc5cc41dd46ed7ecc38cd9698495d06309958d35"
+    },
+    {
+      "path": "android/app/src/debug/AndroidManifest.xml",
+      "size_bytes": 378,
+      "sha256": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "size_bytes": 2337,
+      "sha256": "d5d753cd1f92913aed8a30aaa383ebd3a119e0f4aac02aef72ef726bf0272406"
+    },
+    {
+      "path": "android/app/src/main/kotlin/tz/madini/madini/MainActivity.kt",
+      "size_bytes": 550,
+      "sha256": "1ff0543173a5b70bb587a592746a456925f4117a5ae383e75a852d4c3e41bd9e"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/launch_background.xml",
+      "size_bytes": 434,
+      "sha256": "94433756fe10005ddd6fc55cc5c0b1e9f3c10b66a08ceac795ece6713d34e28a"
+    },
+    {
+      "path": "android/app/src/main/res/drawable-v21/launch_background.xml",
+      "size_bytes": 438,
+      "sha256": "7ca6d5cec2169c5a98661a119db23a6f3399c8fef2256ff04f3a642831282478"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "size_bytes": 544,
+      "sha256": "6a7c8f0d703e3682108f9662f813302236240d3f8f638bb391e32bfb96055fef"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "size_bytes": 442,
+      "sha256": "c7c0c0189145e4e32a401c61c9bdc615754b0264e7afae24e834bb81049eaf81"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "size_bytes": 721,
+      "sha256": "e14aa40904929bf313fded22cf7e7ffcbf1d1aac4263b5ef1be8bfce650397aa"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "size_bytes": 1031,
+      "sha256": "4d470bf22d5c17d84edc5f82516d1ba8a1c09559cd761cefb792f86d9f52b540"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "size_bytes": 1443,
+      "sha256": "3c34e1f298d0c9ea3455d46db6b7759c8211a49e9ec6e44b635fc5c87dfb4180"
+    },
+    {
+      "path": "android/app/src/main/res/values/styles.xml",
+      "size_bytes": 996,
+      "sha256": "937d7c82f539c72eb94fd3a3773f29b3d3fef1997213c92cb632298cedf4bda9"
+    },
+    {
+      "path": "android/app/src/main/res/values-night/styles.xml",
+      "size_bytes": 995,
+      "sha256": "8c5bad5152f217e837519f9c15211d19f39bd45f5f67faf6dd81cb4b299e518f"
+    },
+    {
+      "path": "android/app/src/main/res/xml/data_extraction_rules.xml",
+      "size_bytes": 726,
+      "sha256": "e2e21b2c050ee42cba60f18986c5ca1a8becd4989909f4214cea4a9d34427b62"
+    },
+    {
+      "path": "android/app/src/profile/AndroidManifest.xml",
+      "size_bytes": 378,
+      "sha256": "30b0832ed8b92dfbd6ae2abfa939ccf26333d37600056b1572bd4a397a18a74b"
+    },
+    {
+      "path": "android/build.gradle",
+      "size_bytes": 322,
+      "sha256": "37bb5e2370be94561043add48ffcc5a939b438f226fc0666a6a1e6a826794d1a"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "size_bytes": 201,
+      "sha256": "4f0df93978f8c53f8995c6afcdecd9d290b5df35fa08f236163e8e5df8557c8e"
+    },
+    {
+      "path": "android/gradle.properties",
+      "size_bytes": 135,
+      "sha256": "d6b056bd3b740d434cade7c847233d82e4b92d2787ee5db68411faf5e8c838ec"
+    },
+    {
+      "path": "android/key.properties.example",
+      "size_bytes": 382,
+      "sha256": "d1d6f37d15a81affab13c0fca7a1ee32800405e1ae6e68a9b7a9158e2a1008c4"
+    },
+    {
+      "path": "android/settings.gradle",
+      "size_bytes": 726,
+      "sha256": "e8e04f317e03d9af1c567675c36f741bde68d77a65ada15d5c5f9e9ef6bfec0e"
+    },
+    {
+      "path": "docs/FORMULA_VERSIONS_SW.md",
+      "size_bytes": 2195,
+      "sha256": "2f209c30d4b282766959aff769e0c9a3eca303f1d659dd501d3783b992631e83"
+    },
+    {
+      "path": "docs/PRIVACY_POLICY_DRAFT_SW.md",
+      "size_bytes": 1668,
+      "sha256": "00052618ae1d799e4906219857190d1c76a0d46cdeea541692d62bf03e92e64b"
+    },
+    {
+      "path": "docs/RECOVERY_ENGINE_SW.md",
+      "size_bytes": 4870,
+      "sha256": "476522cba958af881f5ae37e1bf32f76a44aca82b5d2492b567141c248ff569e"
+    },
+    {
+      "path": "docs/TERMS_OF_USE_DRAFT_SW.md",
+      "size_bytes": 1559,
+      "sha256": "30a5ac86f4f05e733620845a7a254ec1c839ba81d996b22807bf2bf1e6787908"
+    },
+    {
+      "path": "docs/VALIDATION_PROTOCOL_SW.md",
+      "size_bytes": 1681,
+      "sha256": "ebc2138e9cd9d04bcf83cf476c4f753e6cbbb8c320c4a621ec83a65c0781b62e"
+    },
+    {
+      "path": "lib/app.dart",
+      "size_bytes": 9216,
+      "sha256": "09ef3a667d9fe23fb10046442327df08d00772b05e9ea731f5e7fd8592673c70"
+    },
+    {
+      "path": "lib/core/app_localizations.dart",
+      "size_bytes": 3055,
+      "sha256": "35064ed651684bbd2bb9878a3ad61a6854adb86c7abc7bddf2104cd23d2c988f"
+    },
+    {
+      "path": "lib/core/app_theme.dart",
+      "size_bytes": 2140,
+      "sha256": "5518cd6b3144f8a024bb8280518c246bdc2f30e027d35c2c5ab3cc82de2cdffd"
+    },
+    {
+      "path": "lib/core/format.dart",
+      "size_bytes": 4638,
+      "sha256": "bfef39b2a249137136b0255beb0555cf5c3f3a58c82719fba8f036b8424c1d1c"
+    },
+    {
+      "path": "lib/core/validators.dart",
+      "size_bytes": 975,
+      "sha256": "b2d07e01b1e0e4c90aace7926443008d4a83790d29030f111645d76baca51025"
+    },
+    {
+      "path": "lib/domain/actual_history.dart",
+      "size_bytes": 4264,
+      "sha256": "9b4f847d3a9172bfb0095084834a02c09b14be636329af269da62b90e05cc725"
+    },
+    {
+      "path": "lib/domain/assay_analysis.dart",
+      "size_bytes": 4658,
+      "sha256": "549f80ac1a8fdad500695592c542edfb283d875f46dad8cbd0466ed540b0db33"
+    },
+    {
+      "path": "lib/domain/assessment_summary.dart",
+      "size_bytes": 22962,
+      "sha256": "9aa168194986fe30ecc6d46741319dfd05acfd0dd33b3ec7f0a85f9d729a31b2"
+    },
+    {
+      "path": "lib/domain/dore_models.dart",
+      "size_bytes": 11389,
+      "sha256": "b9f7d915309c50e5a6f4cad240c682da10251ee32f43ec691d7edadad6e347e6"
+    },
+    {
+      "path": "lib/domain/gold_assessment.dart",
+      "size_bytes": 2455,
+      "sha256": "dfa7573c6c47a79caae700fe01a020d4298d8e177c79e1f15d49e92e19b2a070"
+    },
+    {
+      "path": "lib/domain/integrity_seal.dart",
+      "size_bytes": 2591,
+      "sha256": "0d4d5374987b3266b1f8e295b3c3afcb8cc6f4f1ce5ae22d7b69ab2cf5d9b428"
+    },
+    {
+      "path": "lib/domain/recovery_models.dart",
+      "size_bytes": 6993,
+      "sha256": "d1d7f95621706e3fb019c4b7d1a853a280e7f84201b1bed66f8f2020d6b09623"
+    },
+    {
+      "path": "lib/domain/valuation_models.dart",
+      "size_bytes": 9916,
+      "sha256": "dfc645e4881d67431bad042dbed98899ba9a29c0170e9921d6a208308e7a3b85"
+    },
+    {
+      "path": "lib/features/common/assessment_tile.dart",
+      "size_bytes": 1404,
+      "sha256": "1a6df83345d10199ddd0fbbcac85c5218ae044ac32070c1c7c1f48910d482615"
+    },
+    {
+      "path": "lib/features/history/assessment_detail_screen.dart",
+      "size_bytes": 21561,
+      "sha256": "fa586ffb50d34188d6218235bfe448befb37e17ac8748a0c4326ca48ecad2039"
+    },
+    {
+      "path": "lib/features/history/history_screen.dart",
+      "size_bytes": 1595,
+      "sha256": "42487c981acb465a9304339c3107c65aa078aa4757a0499564408164c3858f38"
+    },
+    {
+      "path": "lib/features/home/home_screen.dart",
+      "size_bytes": 5630,
+      "sha256": "9ad3388a6bd70df4274779c99158406fcac965b3c08e5babb2e1b479ad48ab78"
+    },
+    {
+      "path": "lib/features/lock/lock_screen.dart",
+      "size_bytes": 4751,
+      "sha256": "a821aa3dd030e5a3faa9e708fb748e964f2a3f1a31eeb06007d174b521ea57ac"
+    },
+    {
+      "path": "lib/features/search/search_screen.dart",
+      "size_bytes": 2668,
+      "sha256": "ab6a345bfe51c2dff2f75e654f18899e09eacc06a1debcfea764713fb0fbecd0"
+    },
+    {
+      "path": "lib/features/settings/settings_screen.dart",
+      "size_bytes": 15720,
+      "sha256": "16f9c2bb5758b82906d93df634517d882873aa651e6f1e2ba4001ab5641137f0"
+    },
+    {
+      "path": "lib/features/valuation/dore_screen.dart",
+      "size_bytes": 30095,
+      "sha256": "174f6bd83b34cce47b0c54543990a61b8a094ca752dda2700b4cb601f7b6b4b0"
+    },
+    {
+      "path": "lib/features/valuation/valuation_screen.dart",
+      "size_bytes": 46279,
+      "sha256": "1b2590a6b39747c5f5317d556aad4aebfbca317b14b648db6532dc5636ac8d03"
+    },
+    {
+      "path": "lib/main.dart",
+      "size_bytes": 536,
+      "sha256": "63365e22c6274187c76ab3566c038213dc271cedb3406a07f89ab1c385721fe5"
+    },
+    {
+      "path": "lib/services/app_lock.dart",
+      "size_bytes": 5374,
+      "sha256": "c383253a94d3deee0445bf850f1f0994b76631c4690cad98746c551b3b1e5f81"
+    },
+    {
+      "path": "lib/services/backup_reminder.dart",
+      "size_bytes": 960,
+      "sha256": "a1fed9402a26b61f848763f1aefe4dcff2b52f3cb2209d9f2514a4efd3c66625"
+    },
+    {
+      "path": "lib/services/certificate_vault.dart",
+      "size_bytes": 4216,
+      "sha256": "6942210bf4fc02fe022d324ac260337b107e35be56064a11aa3ad9e24b0186c3"
+    },
+    {
+      "path": "lib/services/local_database.dart",
+      "size_bytes": 28249,
+      "sha256": "f064399a3867500d450fb34ddeba05fbe556f6e6c73909f7920e97436c74006f"
+    },
+    {
+      "path": "lib/services/orphan_sweep.dart",
+      "size_bytes": 1705,
+      "sha256": "f3e03154bfd808ad35da2436ce321c9b2b4b73ab52207ecd1916e5259dc0c62c"
+    },
+    {
+      "path": "lib/services/report_service.dart",
+      "size_bytes": 2819,
+      "sha256": "0ba8aad97cd37de550ee0b9be930757f5696d3ab27f81e577447ad4490a6d1c2"
+    },
+    {
+      "path": "lib/services/secure_backup.dart",
+      "size_bytes": 14324,
+      "sha256": "02ac87c42a641559f1d95da755e13ed005b11d64f2832ea9d05b23b3966b266a"
+    },
+    {
+      "path": "lib/services/temp_files.dart",
+      "size_bytes": 1828,
+      "sha256": "cc24982d1d36be27ad65772324220d7d03c1dd4a22392f9e4ccd57ed0fb0ee66"
+    },
+    {
+      "path": "lib/services/valuation_engine.dart",
+      "size_bytes": 43313,
+      "sha256": "99dce08914274594ac21667a29cba752a8832493fce7bd8d68817370b46e0a55"
+    },
+    {
+      "path": "pubspec.yaml",
+      "size_bytes": 4378,
+      "sha256": "39b3da5eba2d5b819d412978f6e705163be24546580cabbfec0cd84da0bb3a28"
+    },
+    {
+      "path": "scripts/check_16kb.sh",
+      "size_bytes": 1436,
+      "sha256": "c6308afc7178eec473cbafc13e770d04a78c49d57f533228be5c16f1a5419800"
+    },
+    {
+      "path": "scripts/preflight.sh",
+      "size_bytes": 821,
+      "sha256": "967f742e5cc9e1cb1222687181b0aaeac8b132c2503c9538608bc14d56f7576c"
+    },
+    {
+      "path": "test/dore_and_history_test.dart",
+      "size_bytes": 30042,
+      "sha256": "33cc163f8f92767361adbd80c2bb1c4a527071fa12f10f1405086d77f96b4af1"
+    },
+    {
+      "path": "test/integrity_test.dart",
+      "size_bytes": 7538,
+      "sha256": "26bdbda63a86f7d16bd71ecf43cb8710aec705ae5ee5bd394fa657a050d12374"
+    },
+    {
+      "path": "test/recovery_engine_test.dart",
+      "size_bytes": 24895,
+      "sha256": "7b9275081d9d065a3d268d2f8bc6ff876b959ab15377ae2c372f7ae02e43b64a"
+    },
+    {
+      "path": "test/valuation_engine_test.dart",
+      "size_bytes": 10132,
+      "sha256": "251aa2ef3e09d54b86e6e7763f4ac04245b8b5d84981b617e7513d6a824a7c6e"
+    },
+    {
+      "path": "test/widget_test.dart",
+      "size_bytes": 674,
+      "sha256": "523a75c15020449777cac7dc3c818e5071569f3f963948cfd6203c0436962981"
+    },
+    {
+      "path": "web/favicon.png",
+      "size_bytes": 917,
+      "sha256": "7ab2525f4b86b65d3e4c70358a17e5a1aaf6f437f99cbcc046dad73d59bb9015"
+    },
+    {
+      "path": "web/icons/Icon-192.png",
+      "size_bytes": 5292,
+      "sha256": "3dce99077602f70421c1c6b2a240bc9b83d64d86681d45f2154143310c980be3"
+    },
+    {
+      "path": "web/icons/Icon-512.png",
+      "size_bytes": 8252,
+      "sha256": "baccb205ae45f0b421be1657259b4943ac40c95094ab877f3bcbe12cd544dcbe"
+    },
+    {
+      "path": "web/icons/Icon-maskable-192.png",
+      "size_bytes": 5594,
+      "sha256": "d2c842e22a9f4ec9d996b23373a905c88d9a203b220c5c151885ad621f974b5c"
+    },
+    {
+      "path": "web/icons/Icon-maskable-512.png",
+      "size_bytes": 20998,
+      "sha256": "6aee06cdcab6b2aef74b1734c4778f4421d2da100b0ff9e52b21b55240202929"
+    },
+    {
+      "path": "web/index.html",
+      "size_bytes": 1216,
+      "sha256": "b17b3cbc24b40907282778577a6d9852a5c603e9fa13f190ea7e43c69267c94f"
+    },
+    {
+      "path": "web/manifest.json",
+      "size_bytes": 908,
+      "sha256": "dbb8dd4bc2453526c7b53efac801623572e142c279487911902e29f38d16b05b"
+    }
+  ]
+}
