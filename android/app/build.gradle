@@ -18,7 +18,7 @@ if (isReleaseBuild && !keystorePropertiesFile.exists() && System.getenv('MADINI_
 android {
     namespace = "tz.madini.madini"
     // Google Play (tangu 31 Aug 2026): apps mpya/masasisho lazima zilenge API 36.
-    compileSdk = 36
+    compileSdkVersion 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

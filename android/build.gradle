@@ -16,3 +16,14 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+
+// MADINI: enforce Android API 36 for Flutter plugin modules
+subprojects {
+    afterEvaluate { project ->
+        def androidExtension = project.extensions.findByName("android")
+        if (androidExtension != null) {
+            androidExtension.compileSdkVersion(36)
+        }
+    }
+}
