@@ -54,3 +54,4 @@ backend/.env
 android/key.properties
 *.jks
 *.keystore
+*.zip
